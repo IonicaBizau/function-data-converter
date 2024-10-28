@@ -16,7 +16,7 @@
     "functions"
   ],
   "license": "MIT",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "main": "lib/index.js",
   "author": "Ionică Bizău <bizauionica@gmail.com> (https://ionicabizau.net)",
   "files": [
@@ -51,7 +51,7 @@
     "ul": "^5.2.2"
   },
   "blah": {
-    "h_img": "http://i.imgur.com/2QzGSBl.png"
+    "h_img": "https://i.imgur.com/mbUUbDe.png"
   },
   "devDependencies": {
     "tester": "^1.3.5"
