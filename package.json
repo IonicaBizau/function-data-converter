@@ -2,11 +2,11 @@
   "scripts": {
     "test": "node test/index.js"
   },
-  "name": "transformer",
-  "description": "Transform data using synchronous and asynchronous functions.",
+  "name": "function-data-converter",
+  "description": "Convert data using synchronous and asynchronous functions.",
   "keywords": [
-    "transformer",
-    "transform",
+    "converter",
+    "convert",
     "the",
     "data",
     "using",
@@ -36,12 +36,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/IonicaBizau/transformer.git"
+    "url": "git+ssh://git@github.com/IonicaBizau/function-data-converter.git"
   },
   "bugs": {
-    "url": "https://github.com/IonicaBizau/transformer/issues"
+    "url": "https://github.com/IonicaBizau/function-data-converter/issues"
   },
-  "homepage": "https://github.com/IonicaBizau/transformer#readme",
+  "homepage": "https://github.com/IonicaBizau/function-data-converter#readme",
   "dependencies": {
     "asyncer.js": "^1.0.0",
     "deffy": "^2.2.2",

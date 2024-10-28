@@ -1,8 +1,8 @@
 "use strict";
 
-const Transformer = require("../lib");
+const FunctionDataConverter = require("../lib");
 
-let t = new Transformer({ world: "Earth" });
+let t = new FunctionDataConverter({ world: "Earth" });
 
 
 // There are three levels where the functions are added to be executed:
@@ -19,7 +19,7 @@ t.add((data, cb) => {
         data.parallel = 42;
         cb();
     }, 2000);
-}, Transformer.PARALLEL);
+}, FunctionDataConverter.PARALLEL);
 
 // Async function, but ordered
 t.add((data, cb) => {
@@ -44,7 +44,7 @@ t.add((data, cb) => {
         data.foo = 42;
         cb();
     }, 1000);
-}, Transformer.UNORDERED);
+}, FunctionDataConverter.UNORDERED);
 
 // Another unordered function (this will end sooner)
 t.add((data, cb) => {
@@ -52,7 +52,7 @@ t.add((data, cb) => {
         data.bar = 42;
         cb(null, data);
     }, 900);
-}, Transformer.UNORDERED);
+}, FunctionDataConverter.UNORDERED);
 
 // Sync function
 t.add(data => {

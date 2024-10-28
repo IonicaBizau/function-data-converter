@@ -1,19 +1,19 @@
 "use strict";
 
 const tester = require("tester")
-    , Transformer = require("..")
+    , FunctionDataConverter = require("..")
     ;
 
-tester.describe("transformer", test => {
-    test.should("transform data using synchronous and asynchronous functions.", cb => {
-        let t = new Transformer({ world: "Earth" });
+tester.describe("converter", test => {
+    test.should("convert data using synchronous and asynchronous functions.", cb => {
+        let t = new FunctionDataConverter({ world: "Earth" });
 
         t.add((data, cb) => {
             setTimeout(() => {
                 data.parallel = 42;
                 cb();
             }, 20);
-        }, Transformer.PARALLEL);
+        }, FunctionDataConverter.PARALLEL);
 
         // Async function, but ordered
         t.add((data, cb) => {
@@ -38,7 +38,7 @@ tester.describe("transformer", test => {
                 data.foo = 42;
                 cb();
             }, 10);
-        }, Transformer.UNORDERED);
+        }, FunctionDataConverter.UNORDERED);
 
         // Another unordered function (this will end sooner)
         t.add((data, cb) => {
@@ -46,7 +46,7 @@ tester.describe("transformer", test => {
                 data.bar = 42;
                 cb(null, data);
             }, 9);
-        }, Transformer.UNORDERED);
+        }, FunctionDataConverter.UNORDERED);
 
         // Sync function
         t.add(data => {
@@ -68,12 +68,12 @@ tester.describe("transformer", test => {
         });
     });
 
-    test.it("concat transformers", cb => {
-        let t = new Transformer({ world: "Earth" });
-        let t1 = new Transformer();
-        let t2 = new Transformer();
-        let t3 = new Transformer();
-        let t4 = new Transformer();
+    test.it("concat converters", cb => {
+        let t = new FunctionDataConverter({ world: "Earth" });
+        let t1 = new FunctionDataConverter();
+        let t2 = new FunctionDataConverter();
+        let t3 = new FunctionDataConverter();
+        let t4 = new FunctionDataConverter();
 
         t.add((data, cb) => {
             test.expect(data.world, "Earth");
@@ -81,7 +81,7 @@ tester.describe("transformer", test => {
                 data.parallel = 42;
                 cb();
             }, 20);
-        }, Transformer.PARALLEL);
+        }, FunctionDataConverter.PARALLEL);
 
         // Async function, but ordered
         t.add(t1);
@@ -101,7 +101,7 @@ tester.describe("transformer", test => {
                 data.foo = 42;
                 cb();
             }, 10);
-        }, Transformer.UNORDERED);
+        }, FunctionDataConverter.UNORDERED);
 
         // Another unordered function (this will end sooner)
         t3.add((data, cb) => {
@@ -109,7 +109,7 @@ tester.describe("transformer", test => {
                 data.bar = 42;
                 cb(null, data);
             }, 9);
-        }, Transformer.UNORDERED);
+        }, FunctionDataConverter.UNORDERED);
 
         // Sync function
         t2.add(data => {

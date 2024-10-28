@@ -7,7 +7,7 @@
 
 
 
-[![transformer](http://i.imgur.com/2QzGSBl.png)](#)
+[![function-data-converter](http://i.imgur.com/2QzGSBl.png)](#)
 
 
 
@@ -19,9 +19,9 @@
 
 
 
-# transformer
+# function-data-converter
 
- [![Support me on Patreon][badge_patreon]][patreon] [![Buy me a book][badge_amazon]][amazon] [![PayPal][badge_paypal_donate]][paypal-donations] [![Ask me anything](https://img.shields.io/badge/ask%20me-anything-1abc9c.svg)](https://github.com/IonicaBizau/ama) [![Travis](https://img.shields.io/travis/IonicaBizau/transformer.svg)](https://travis-ci.org/IonicaBizau/transformer/) [![Version](https://img.shields.io/npm/v/transformer.svg)](https://www.npmjs.com/package/transformer) [![Downloads](https://img.shields.io/npm/dt/transformer.svg)](https://www.npmjs.com/package/transformer) [![Get help on Codementor](https://cdn.codementor.io/badges/get_help_github.svg)](https://www.codementor.io/johnnyb?utm_source=github&utm_medium=button&utm_term=johnnyb&utm_campaign=github)
+ [![Support me on Patreon][badge_patreon]][patreon] [![Buy me a book][badge_amazon]][amazon] [![PayPal][badge_paypal_donate]][paypal-donations] [![Ask me anything](https://img.shields.io/badge/ask%20me-anything-1abc9c.svg)](https://github.com/IonicaBizau/ama) [![Travis](https://img.shields.io/travis/IonicaBizau/function-data-converter.svg)](https://travis-ci.org/IonicaBizau/function-data-converter/) [![Version](https://img.shields.io/npm/v/function-data-converter.svg)](https://www.npmjs.com/package/function-data-converter) [![Downloads](https://img.shields.io/npm/dt/function-data-converter.svg)](https://www.npmjs.com/package/function-data-converter) [![Get help on Codementor](https://cdn.codementor.io/badges/get_help_github.svg)](https://www.codementor.io/johnnyb?utm_source=github&utm_medium=button&utm_term=johnnyb&utm_campaign=github)
 
 <a href="https://www.buymeacoffee.com/H96WwChMy" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png" alt="Buy Me A Coffee"></a>
 
@@ -31,7 +31,7 @@
 
 
 
-> Transform data using synchronous and asynchronous functions.
+> Convert data using synchronous and asynchronous functions.
 
 
 
@@ -53,10 +53,10 @@
 
 ```sh
 # Using npm
-npm install --save transformer
+npm install --save function-data-converter
 
 # Using yarn
-yarn add transformer
+yarn add function-data-converter
 ```
 
 
@@ -76,9 +76,9 @@ yarn add transformer
 
 
 ```js
-const Transformer = require("transformer");
+const FunctionDataConverter = require("function-data-converter");
 
-let t = new Transformer({ world: "Earth" });
+let t = new FunctionDataConverter({ world: "Earth" });
 
 
 // There are three levels where the functions are added to be executed:
@@ -95,7 +95,7 @@ t.add((data, cb) => {
         data.parallel = 42;
         cb();
     }, 2000);
-}, Transformer.PARALLEL);
+}, FunctionDataConverter.PARALLEL);
 
 // Async function, but ordered
 t.add((data, cb) => {
@@ -120,7 +120,7 @@ t.add((data, cb) => {
         data.foo = 42;
         cb();
     }, 1000);
-}, Transformer.UNORDERED);
+}, FunctionDataConverter.UNORDERED);
 
 // Another unordered function (this will end sooner)
 t.add((data, cb) => {
@@ -128,7 +128,7 @@ t.add((data, cb) => {
         data.bar = 42;
         cb(null, data);
     }, 900);
-}, Transformer.UNORDERED);
+}, FunctionDataConverter.UNORDERED);
 
 // Sync function
 t.add(data => {
@@ -156,6 +156,7 @@ t.on("end", (err, data) => console.log(data));
 
 
 
+
 ## :question: Get Help
 
 There are few ways to get help:
@@ -170,12 +171,14 @@ There are few ways to get help:
 
 
 
+
+
 ## :memo: Documentation
 
 
-### `transformer(data, opts)`
-Transformer
-Transforms the data using synchronous and asynchronous functions.
+### `converter(data, opts)`
+Converter
+Converts the data using synchronous and asynchronous functions.
 
 #### Params
 
@@ -200,14 +203,14 @@ Ordered (wait):         | <1: [...]> <2: [.]> <3:[.....]>                <5: [..
 
 #### Params
 
-- **Function|Transformer** `fn`: The function to add. Note you can add an existing transformer instance as well.
-- **TransformerType** `type`: One of the following:
-   - `Transformer.PARALLEL`: Used to append on the parallel timeline.
-   - `Transformer.UNORDERED`: Grouped, but unordered.
-   - `Transformer.ORDERED`: Grouped, but ordered.
+- **Function|FunctionDataConverter** `fn`: The function to add. Note you can add an existing converter instance as well.
+- **ConverterType** `type`: One of the following:
+   - `Converter.PARALLEL`: Used to append on the parallel timeline.
+   - `Converter.UNORDERED`: Grouped, but unordered.
+   - `Converter.ORDERED`: Grouped, but ordered.
 
 #### Return
-- **Transformer** The current Transformer instance.
+- **FunctionDataConverter** The current Converter instance.
 
 ### `start(data, fn)`
 Starts the function execution.
@@ -264,14 +267,6 @@ Thanks! :heart:
 
 
 
-
-
-
-## :dizzy: Where is this library used?
-If you are using this library in one of your projects, add it in this list. :sparkles:
-
- - `lien`
- - `launchjs`
 
 
 
