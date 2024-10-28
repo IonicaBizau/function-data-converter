@@ -21,11 +21,13 @@ Adds a new function.
 
 There are three levels where the functions are added to be executed:
 
+```
 Parallel:               | <0: [.............................................]>
 Unordered (don't wait): |                                <4a: [........]>
                         +                                <4b: [....]>
                         +                                <4c: [......]>
 Ordered (wait):         | <1: [...]> <2: [.]> <3:[.....]>                <5: [....]>
+```
 
 #### Params
 
