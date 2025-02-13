@@ -16,7 +16,7 @@
     "functions"
   ],
   "license": "MIT",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "main": "lib/index.js",
   "author": "Ionică Bizău <bizauionica@gmail.com> (https://ionicabizau.net)",
   "files": [
@@ -30,6 +30,8 @@
     "menu/",
     "cli.js",
     "index.js",
+    "index.d.ts",
+    "package-lock.json",
     "bloggify.js",
     "bloggify.json",
     "bloggify/"
